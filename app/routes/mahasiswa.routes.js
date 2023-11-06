@@ -1,0 +1,17 @@
+module.exports = app =>{
+    const mahasiswa =require("../controller/mahasiswa.controller")
+    const r = require("express").Router();
+
+    r.get("/", mahasiswa.findAll);
+    r.get("/:id", mahasiswa.show);
+    r.post("/", mahasiswa.create);
+    r.put("/:id", mahasiswa.update);
+    r.delete("/:id", mahasiswa.delete);
+
+    app.use("/mahasiswa", r);
+
+    //route how to access api
+    //example
+    // GET localhost:8000/mahasiswa/:id
+
+}
